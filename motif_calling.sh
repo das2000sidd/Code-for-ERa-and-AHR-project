@@ -1,4 +1,4 @@
-## This is a prototype of a script I used for ChIP seq peak calling
+## This is a prototype of a script I used for ChIP seq peak calling using HOMER suite of tools
 
 export PATH=$PATH:/Users/siddhaduio.no/Desktop/All_omics_tools/homer/bin/
 
