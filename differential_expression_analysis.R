@@ -122,6 +122,8 @@ head(assay(rld), 3)
 library("dplyr")
 library("ggplot2")
 
+
+## Estimating scaling factor per sample
 dds <- estimateSizeFactors(dds)
 
 df <- bind_rows(
@@ -176,13 +178,11 @@ pheatmap(samplePoisDistMatrix,
 
 
 ###PCA plot***
-  
 plotPCA(vsd, intgroup = c("condition")) 
 
 
 
 ###MDS plot***
-  
   mds <- as.data.frame(colData(vsd))  %>%
   cbind(cmdscale(sampleDistMatrix))
 ggplot(mds, aes(x = `1`, y = `2`, color = condition)) +
@@ -190,19 +190,10 @@ ggplot(mds, aes(x = `1`, y = `2`, color = condition)) +
 
 
 ## MDS plot using the VST data
-
-
 mdsPois <- as.data.frame(colData(dds)) %>%
   cbind(cmdscale(samplePoisDistMatrix))
 ggplot(mdsPois, aes(x = `1`, y = `2`, color =condition)) +
   geom_point(size = 3) + coord_fixed() + ggtitle("MDS with PoissonDistances")
-
-
-
-### SVASeq
-#### Running the differential expression pipeline
-## we can run the differential expression pipeline on the raw counts with a single call to the function DESeq
-
 
 
 
