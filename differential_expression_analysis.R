@@ -218,7 +218,10 @@ pheatmap(top_20_genes, cluster_rows=FALSE, show_rownames=FALSE,
 
 
 library(Glimma)
+## Running DESeq to fit NB linear models for each gene
 dds <- DESeq(dds)
+
+## Visualising PCA plot for batch effect or other discrepancies and seeing how well replicates cluster together
 plotMDS(dds)
 
 ## Building the results table
@@ -227,6 +230,7 @@ plotMDS(dds)
 res <- results(dds)
 res
 
+## DEG for DIM vs DMSO
 res_DIM <- results(dds, contrast=c("condition","DIM","DMSO"),pAdjustMethod = "BH",format = "DataFrame")
 mcols(res_DIM, use.names = TRUE)
 res_DIM_df=as.data.frame(res_DIM)
@@ -234,24 +238,28 @@ res_DIM_df$Ensembl=rownames(res_DIM_df)
 summary(res_DIM)
 
 
+## DEG for E2+TCDD vs DMSO
 res_E2_plus_TCDD <- results(dds, contrast=c("condition","E2_plus_TCDD","DMSO"),pAdjustMethod = "BH",format = "DataFrame")
 mcols(res_E2_plus_TCDD, use.names = TRUE)
 res_E2_plus_TCDD_df=as.data.frame(res_E2_plus_TCDD)
 res_E2_plus_TCDD_df$Ensembl=rownames(res_E2_plus_TCDD_df)
 summary(res_E2_plus_TCDD)
 
+## DEG for E2 vs DMSO
 res_E2 <- results(dds, contrast=c("condition","E2","DMSO"),pAdjustMethod = "BH",format = "DataFrame")
 mcols(res_E2, use.names = TRUE)
 res_E2_df=as.data.frame(res_E2)
 res_E2_df$Ensembl=rownames(res_E2_df)
 summary(res_E2)
 
+## DEG for RES vs DMSO
 res_RES <- results(dds, contrast=c("condition","RES","DMSO"),pAdjustMethod = "BH",format = "DataFrame")
 mcols(res_RES, use.names = TRUE)
 res_RES_df=as.data.frame(res_RES)
 res_RES_df$Ensembl=rownames(res_RES_df)
 summary(res_RES)
 
+## DEG for TCDD vs DMSO
 res_TCDD <- results(dds, contrast=c("condition","TCDD","DMSO"),pAdjustMethod = "BH",format = "DataFrame")
 mcols(res_TCDD, use.names = TRUE)
 res_TCDD_df=as.data.frame(res_TCDD)
@@ -266,19 +274,20 @@ library(biomaRt)
 
 normalised_counts=counts(dds, normalized=T)
 
+## Pulling out upregulated DEG's using adj.p cutoff of 0.01 and logFC > 0
+RES_significant_up=subset(res_RES_df,res_RES_df$padj < 0.01 & res_RES_df$log2FoldChange > 1)
+DIM_significant_up=subset(res_DIM_df,res_DIM_df$padj < 0.01 & res_DIM_df$log2FoldChange > 1)
+E2_significant_up=subset(res_E2_df,res_E2_df$padj < 0.01 & res_E2_df$log2FoldChange > 1)
+TCDD_significant_up=subset(res_TCDD_df,res_TCDD_df$padj < 0.01 & res_TCDD_df$log2FoldChange > 1)
+E2_TCDD_significant_up=subset(res_E2_plus_TCDD_df,res_E2_plus_TCDD_df$padj < 0.01 & res_E2_plus_TCDD_df$log2FoldChange > 1)
 
-RES_significant_up=subset(res_RES_df,res_RES_df$padj < 0.01 & res_RES_df$log2FoldChange > 0)
-DIM_significant_up=subset(res_DIM_df,res_DIM_df$padj < 0.01 & res_DIM_df$log2FoldChange > 0)
-E2_significant_up=subset(res_E2_df,res_E2_df$padj < 0.01 & res_E2_df$log2FoldChange > 0)
-TCDD_significant_up=subset(res_TCDD_df,res_TCDD_df$padj < 0.01 & res_TCDD_df$log2FoldChange > 0)
-E2_TCDD_significant_up=subset(res_E2_plus_TCDD_df,res_E2_plus_TCDD_df$padj < 0.01 & res_E2_plus_TCDD_df$log2FoldChange > 0)
 
-
-RES_significant_dn=subset(res_RES_df,res_RES_df$padj < 0.01 & res_RES_df$log2FoldChange < 0)
-DIM_significant_dn=subset(res_DIM_df,res_DIM_df$padj < 0.01 & res_DIM_df$log2FoldChange < 0)
-E2_significant_dn=subset(res_E2_df,res_E2_df$padj < 0.01 & res_E2_df$log2FoldChange < 0)
-TCDD_significant_dn=subset(res_TCDD_df,res_TCDD_df$padj < 0.01 & res_TCDD_df$log2FoldChange < 0)
-E2_TCDD_significant_dn=subset(res_E2_plus_TCDD_df,res_E2_plus_TCDD_df$padj < 0.01 & res_E2_plus_TCDD_df$log2FoldChange < 0)
+## Pulling out downregulated DEG's using adj.p cutoff of 0.01 and logFC < -1
+RES_significant_dn=subset(res_RES_df,res_RES_df$padj < 0.01 & res_RES_df$log2FoldChange < -1)
+DIM_significant_dn=subset(res_DIM_df,res_DIM_df$padj < 0.01 & res_DIM_df$log2FoldChange < -1)
+E2_significant_dn=subset(res_E2_df,res_E2_df$padj < 0.01 & res_E2_df$log2FoldChange < -1)
+TCDD_significant_dn=subset(res_TCDD_df,res_TCDD_df$padj < 0.01 & res_TCDD_df$log2FoldChange < -1)
+E2_TCDD_significant_dn=subset(res_E2_plus_TCDD_df,res_E2_plus_TCDD_df$padj < 0.01 & res_E2_plus_TCDD_df$log2FoldChange < -1)
 
 
 
