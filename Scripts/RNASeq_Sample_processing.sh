@@ -1,4 +1,3 @@
-date > DMSO_S10_alignment_times.txt
  
 java -jar /Users/siddhaduio.no/Desktop/All_omics_tools/Trimmomatic-0.39/trimmomatic-0.39.jar SE -threads 10 -phred33 /Users/siddhaduio.no/Desktop/PhD_Project_related/Data_from_Jason/RNA_Seq/fastq/2-3MCF-DMSO_S10_R1_001.fastq.gz /Users/siddhaduio.no/Desktop/PhD_Project_related/Data_from_Jason/RNA_Seq/fastq/2-3MCF-DMSO_S10_R1_001.fastq.gz.trimmed ILLUMINACLIP:/Users/siddhaduio.no/Desktop/PhD_Project_related/Data_from_Jason/ChIP_Seq/raw_reads/adapters/TruSeq/TruSeq2-SE.fa:2:30:7 MINLEN:15
 
@@ -13,7 +12,7 @@ mv /Users/siddhaduio.no/Desktop/PhD_Project_related/Data_from_Jason/RNA_Seq/fast
 
 /Users/siddhaduio.no/Desktop/All_omics_tools/samtools-1.14/samtools index /Users/siddhaduio.no/Desktop/PhD_Project_related/Data_from_Jason/RNA_Seq/fastq/2-3MCF-DMSO_S10_R1_001.bam
 
-date >> DMSO_S10_alignment_times.txt
+
 
 
 ### getting count using htseq. Running union since most approproriate and recommended
