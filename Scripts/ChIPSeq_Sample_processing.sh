@@ -1,6 +1,5 @@
 ### This is a prototype of code I used for processing ChIP sequecning samples
 
-date > DIM_AHR_Rep1_alignment_times.txt
  
 java -jar /Users/siddhaduio.no/Desktop/All_omics_tools/Trimmomatic-0.39/trimmomatic-0.39.jar SE -threads 10 -phred33 /Users/siddhaduio.no/Desktop/PhD_Project_related/Data_from_Jason/ChIP_Seq/raw_reads/DIM_AHR_Rep_1.clean.fq.gz /Users/siddhaduio.no/Desktop/PhD_Project_related/Data_from_Jason/ChIP_Seq/raw_reads/DIM_AHR_Rep_1.clean.fq.trimmed ILLUMINACLIP:/Users/siddhaduio.no/Desktop/PhD_Project_related/Data_from_Jason/ChIP_Seq/raw_reads/adapters/TruSeq/TruSeq2-SE.fa:2:30:7 MINLEN:15
 
@@ -14,5 +13,4 @@ mv /Users/siddhaduio.no/Desktop/PhD_Project_related/Data_from_Jason/ChIP_Seq/raw
 
 /Users/siddhaduio.no/Desktop/All_omics_tools/samtools-1.14/samtools index /Users/siddhaduio.no/Desktop/PhD_Project_related/Data_from_Jason/ChIP_Seq/raw_reads/DIM_AHR_Rep_1.clean.bam
 
-date >> DIM_AHR_Rep1_alignment_times.txt
 
