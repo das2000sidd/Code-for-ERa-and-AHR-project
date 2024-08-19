@@ -293,14 +293,6 @@ write.table(res_TCDD_df,file="DMSO_vs_TCDD_DESEq2_Diff_exp_analysis_Feature_Coun
 
 
 
-ensembl_symbol=read.table(file="hg38_ensembl_symbol_entrez_id.txt",header = T,sep="\t",stringsAsFactors = F)
-
-ensembl_symbol=subset(ensembl_symbol,ensembl_symbol$Gene.name!="")
-ensembl_symbol=ensembl_symbol[,c(1,3)]
-ensembl_symbol=subset(ensembl_symbol,ensembl_symbol$HGNC.symbol!="")
-
-
-
 
 
 
