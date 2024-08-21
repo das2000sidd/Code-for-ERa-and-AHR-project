@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## This is a wrapper script that looped over the ChIP seq fastq files and generated individual scripts to process the raw ChIP sequencing reads
+## This is a wrapper script that loops over the ChIP seq fastq files and generated individual scripts to process the raw ChIP sequencing reads
 
 for fastq_1 in `ls *.fastq.gz`
 do
