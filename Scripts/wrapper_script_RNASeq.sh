@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## This is a wrapper script that looped over the single end RNA sequencing fastq files and generated individual scripts to process the raw RNA sequencing reads
+## This is a wrapper script that loops over the single end RNA sequencing fastq files and generated individual scripts to process the raw RNA sequencing reads
 
 
 for fastq_1 in `ls *.fq.gz`
