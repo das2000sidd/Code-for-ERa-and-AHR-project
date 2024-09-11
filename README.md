@@ -1,4 +1,4 @@
-# Code-for-ERa-and-AHR-project
+# Code-for-1st-paper-of-thesis
 This repository holds the prototype of script used for processing raw sequencing data and subsequent downstream analysis for generating fiugres used in the paper looking at crosstalk between arylhydrocarbon receptor and estrogen receptor alpha project.
 The GEO repository for the raw data for this project is deposited in GSE232235.
 
