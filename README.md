@@ -1,5 +1,5 @@
 # Code-for-1st-paper-of-thesis
-This repository holds the prototype of script used for processing raw sequencing data and subsequent downstream analysis for generating fiugres used in the paper looking at crosstalk between arylhydrocarbon receptor and estrogen receptor alpha project.
+This repository holds the prototype of script used in paper 1 of Ph.D. thesis for processing raw sequencing data and subsequent downstream analysis for generating fiugres used in the paper looking at crosstalk between arylhydrocarbon receptor and estrogen receptor alpha project.
 The GEO repository for the raw data for this project is deposited in GSE232235.
 
 The script ChIPSeq_Sample_processing.sh holds the code used for processing raw single end ChIP sequencing experiment FASTQ files which included trimming Illumina TruSeq adapter using Trimmomatic (v.0.39) followed by alignment to the reference genome using bowtie2 to generate SAM files. The SAM files were converted to bam files using samtools view flag followed sorting of the BAM file by samtools. Subsequently the BAM files were indexed using samtools index flag.
