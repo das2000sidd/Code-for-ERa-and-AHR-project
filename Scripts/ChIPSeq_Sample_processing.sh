@@ -1,4 +1,4 @@
-### This is a prototype of code I used for processing ChIP sequecning samples
+### This is a representation of the pipeline I used for processing ChIP sequencing samples
 
  
 java -jar /Users/siddhaduio.no/Desktop/All_omics_tools/Trimmomatic-0.39/trimmomatic-0.39.jar SE -threads 10 -phred33 /Users/siddhaduio.no/Desktop/PhD_Project_related/Data_from_Jason/ChIP_Seq/raw_reads/DIM_AHR_Rep_1.clean.fq.gz /Users/siddhaduio.no/Desktop/PhD_Project_related/Data_from_Jason/ChIP_Seq/raw_reads/DIM_AHR_Rep_1.clean.fq.trimmed ILLUMINACLIP:/Users/siddhaduio.no/Desktop/PhD_Project_related/Data_from_Jason/ChIP_Seq/raw_reads/adapters/TruSeq/TruSeq2-SE.fa:2:30:7 MINLEN:15
