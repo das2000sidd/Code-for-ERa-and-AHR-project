@@ -124,48 +124,10 @@ pheatmap(sampleDistMatrix,
 
 
 
-library("PoiClaClu")
-poisd <- PoissonDistance(t(counts(dds)))
-samplePoisDistMatrix <- as.matrix( poisd$dd )
-rownames(samplePoisDistMatrix) <- paste( dds$dex, dds$cell, sep=" - " )
-colnames(samplePoisDistMatrix) <- NULL
-pheatmap(samplePoisDistMatrix,
-         clustering_distance_rows = poisd$dd,
-         clustering_distance_cols = poisd$dd,
-         col = colors)
-
-
-
-
 ###PCA plot***
 plotPCA(vsd, intgroup = c("condition")) 
 
 
-
-###MDS plot***
-  mds <- as.data.frame(colData(vsd))  %>%
-  cbind(cmdscale(sampleDistMatrix))
-ggplot(mds, aes(x = `1`, y = `2`, color = condition)) +
-  geom_point(size = 3) + coord_fixed() + ggtitle("MDS with VST data")  
-
-
-## MDS plot using the VST data
-mdsPois <- as.data.frame(colData(dds)) %>%
-  cbind(cmdscale(samplePoisDistMatrix))
-ggplot(mdsPois, aes(x = `1`, y = `2`, color =condition)) +
-  geom_point(size = 3) + coord_fixed() + ggtitle("MDS with PoissonDistances")
-
-
-
-library("pheatmap")
-select <- order(rowMeans(counts(dds,normalized=TRUE)),
-                decreasing=TRUE)[1:20]
-df <- as.data.frame(colData(dds)[,c("condition")])
-top_20_genes=assay(ntd)[select,]
-colnames(df)="Condition"
-rownames(df)=colnames(top_20_genes)
-pheatmap(top_20_genes, cluster_rows=FALSE, show_rownames=FALSE,
-         cluster_cols=FALSE, annotation_col=df)
 
 
 library(Glimma)
@@ -177,9 +139,6 @@ plotMDS(dds)
 
 ## Building the results table
 
-
-res <- results(dds)
-res
 
 ## DEG for DIM vs DMSO
 res_DIM <- results(dds, contrast=c("condition","DIM","DMSO"),pAdjustMethod = "BH",format = "DataFrame")
