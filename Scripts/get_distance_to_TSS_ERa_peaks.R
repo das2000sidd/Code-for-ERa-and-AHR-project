@@ -27,11 +27,6 @@ library(ChIPseeker)
 queryFile = system.file("extdata", "vistaEnhancers.bed.gz", package="GenomicDistributions")
 query = rtracklayer::import(queryFile)
 
-#e2_plus_tcdd$seqnames=paste("chr",e2_plus_tcdd$seqnames,sep="")
-#tcdd$seqnames=paste("chr",tcdd$seqnames,sep="")
-#dim$seqnames=paste("chr",dim$seqnames,sep="")
-#res$seqnames=paste("chr",res$seqnames,sep="")
-#e2$seqnames=paste("chr",e2$seqnames,sep="")
 
 e2_plus_tcdd=toGRanges(e2_plus_tcdd[,c(1:3)],format="BED",header=TRUE)
 tcdd=toGRanges(tcdd[,c(1:3)],format="BED",header=TRUE)
@@ -74,10 +69,6 @@ dev.off()
 tiff("Distance to TSS for E2 treated ERa peaks smaller font.tiff",width=800,height=800,res=500)
 plotFeatureDist(e2_TSSdist,numbers = TRUE,nbin=200)+ggtitle("")+theme(text = element_text(size=6),axis.text.y = element_text(angle=90, hjust=1,size=6),axis.text.x = element_text(size=6),axis.title = element_text(size=6))+ylim(0,400)+ylab("Frequency of peaks")+geom_bar(stat="identity",fill="grey")
 dev.off()
-
-
-
-
 
 
 tiff("Distance to TSS for RES treated ERa peaks.tiff",width=800)
