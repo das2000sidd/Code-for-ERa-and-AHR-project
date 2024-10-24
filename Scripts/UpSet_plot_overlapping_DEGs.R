@@ -2,9 +2,9 @@
 ## upset plot for overlapping differentially expressed genes
 ## for various ligand treated samples relative to control DMSO
 
-e2_r=read.table(file="E2_vs_DMSO_RNASeq_diff_exp_run_after_batch_correction.txt",header=T,sep="\t",stringsAsFactors = F)
-dim_r=read.table(file="DIM_vs_DMSO_RNASeq_diff_exp_run_after_batch_correction.txt",header=T,sep="\t",stringsAsFactors = F)
-res_r=read.table(file="RES_vs_DMSO_RNASeq_diff_exp_run_after_batch_correction.txt",header=T,sep="\t",stringsAsFactors = F)
+e2_r=read.table(file="DMSO_vs_E2_DESEq2_Diff_exp_analysis.txt",header=T,sep="\t",stringsAsFactors = F)
+dim_r=read.table(file="DMSO_vs_DIM_DESEq2_Diff_exp_analysis.txt",header=T,sep="\t",stringsAsFactors = F)
+res_r=read.table(file="DMSO_vs_RES_DESEq2_Diff_exp_analysis.txt",header=T,sep="\t",stringsAsFactors = F)
 
 
 e2_sig=subset(e2_r,e2_r$padj < 0.01 & abs(e2_r$log2FoldChange) > 1)
