@@ -83,31 +83,11 @@ idx <- rowSums( cpm(dds)) >= 2 ## This is not necessary
 
 head(all_counts_combined[,c(6:8)])
 
-# this gives log2(n + 1)
-ntd <- normTransform(dds)
-library("vsn")
-meanSdPlot(assay(ntd))
-#meanSdPlot(assay(vsd))
-#meanSdPlot(assay(rld))
+
 
 ## Exploratory analysis and visualisation
 
 nrow(dds)
-
-
-# *** variance stabilizing transformation and the rlog***
-
-lambda <- 10^seq(from = -1, to = 2, length = 1000)
-cts <- matrix(rpois(1000*100, lambda), ncol = 100)
-library("vsn")
-meanSdPlot(cts, ranks = FALSE)
-
-log.cts.one <- log2(cts + 1)
-meanSdPlot(log.cts.one, ranks = FALSE)
-
-
-
-
 
 
 vsd <- rlog(dds, blind = FALSE)
@@ -116,32 +96,12 @@ head(assay(vsd), 3)
 colData(vsd)
 
 
-rld <- rlog(dds, blind = FALSE)
-head(assay(rld), 3)
-
 library("dplyr")
 library("ggplot2")
 
 
 ## Estimating scaling factor per sample
 dds <- estimateSizeFactors(dds)
-
-df <- bind_rows(
-  as_data_frame(log2(counts(dds, normalized=TRUE)[, 1:2]+1)) %>%
-    mutate(transformation = "log2(x + 1)"),
-  as_data_frame(assay(vsd)[, 1:2]) %>% mutate(transformation = "vst"),
-  as_data_frame(assay(rld)[, 1:2]) %>% mutate(transformation = "rlog"))
-
-colnames(df)[1:2] <- c("x", "y")  
-
-lvls <- c("log2(x + 1)", "vst", "rlog")
-df$transformation <- factor(df$transformation, levels=lvls)
-
-ggplot(df, aes(x = x, y = y)) + geom_hex(bins = 80) +
-  coord_fixed() + facet_grid( . ~ transformation)  
-# the VST has a upward shift for the smaller values
-
-
 
 
 sampleDists <- dist(t(assay(vsd)))
@@ -153,7 +113,7 @@ library("RColorBrewer")
 
 
 sampleDistMatrix <- as.matrix( sampleDists )
-rownames(sampleDistMatrix) <- paste( vsd$dex, vsd$cell, sep = " - " )
+rownames(sampleDistMatrix) <- paste( vsd$condition, sep = " - " )
 colnames(sampleDistMatrix) <- NULL
 colors <- colorRampPalette( rev(brewer.pal(9, "Blues")) )(255)
 pheatmap(sampleDistMatrix,
