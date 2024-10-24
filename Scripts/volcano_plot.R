@@ -4,7 +4,7 @@
 ## from ChIP sequencing for potential receptor regulated genes
 
 
-e2=read.table(file="E2_vs_DMSO_RNASeq_diff_exp_run_after_batch_correction.txt",header = T,sep="\t",stringsAsFactors = F)
+e2=read.table(file="DMSO_vs_E2_DESEq2_Diff_exp_analysis.txt",header = T,sep="\t",stringsAsFactors = F)
 adjp=0.01
 
 e2$baseMean_log=log2(e2$baseMean+1)
