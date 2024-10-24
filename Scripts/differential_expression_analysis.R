@@ -2,33 +2,33 @@
 ## comparing various 6 hour ligand treated MCF-7 cells to 6 hour DMSO treated cells 
 
 
-DMSO_r1=read.table(file="1-2MCF-DMSO_S7_R1_001.featureCounts.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
-DMSO_r2=read.table(file="2-3MCF-DMSO_S10_R1_001.featureCounts.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
-DMSO_r3=read.table(file="3-4MCF-DMSO_S13_R1_001.featureCounts.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
+DMSO_r1=read.table(file="1-2MCF-DMSO_S7_R1_001.htseqCount.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
+DMSO_r2=read.table(file="2-3MCF-DMSO_S10_R1_001.htseqCount.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
+DMSO_r3=read.table(file="3-4MCF-DMSO_S13_R1_001.htseqCount.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
 
 
-DIM_r1=read.table(file="7-9MCF-DIM_S3_R1_001.featureCounts.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
-DIM_r2=read.table(file="8-11MCF-DIM_S5_R1_001.featureCounts.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
-DIM_r3=read.table(file="9-12MCF-DIM_S8_R1_001.featureCounts.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
+DIM_r1=read.table(file="7-9MCF-DIM_S3_R1_001.htseqCount.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
+DIM_r2=read.table(file="8-11MCF-DIM_S5_R1_001.htseqCount.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
+DIM_r3=read.table(file="9-12MCF-DIM_S8_R1_001.htseqCount.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
 
 
-e2_1=read.table(file="13-17MCF-E2_S18_R1_001.featureCounts.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
-e2_2=read.table(file="14-18MCF-E2_S2_R1_001.featureCounts.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
-e2_3=read.table(file="15-19MCF-E2_S4_R1_001.featureCounts.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
+e2_1=read.table(file="13-17MCF-E2_S18_R1_001.htseqCount.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
+e2_2=read.table(file="14-18MCF-E2_S2_R1_001.htseqCount.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
+e2_3=read.table(file="15-19MCF-E2_S4_R1_001.htseqCount.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
 
 
-res_1=read.table(file="10-13MCF-RES_S11_R1_001.featureCounts.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
-res_2=read.table(file="11-14MCF-RES_S14_R1_001.featureCounts.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
-res_3=read.table(file="12-16MCF-RES_S16_R1_001.featureCounts.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
+res_1=read.table(file="10-13MCF-RES_S11_R1_001.htseqCount.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
+res_2=read.table(file="11-14MCF-RES_S14_R1_001.htseqCount.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
+res_3=read.table(file="12-16MCF-RES_S16_R1_001.htseqCount.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
 
 
-tcdd_1=read.table(file="4-5MCF-TCDD_S15_R1_001.featureCounts.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
-tcdd_2=read.table(file="5-6MCF-TCDD_S17_R1_001.featureCounts.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
-tcdd_3=read.table(file="6-7MCF-TCDD_S1_R1_001.featureCounts.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
+tcdd_1=read.table(file="4-5MCF-TCDD_S15_R1_001.htseqCount.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
+tcdd_2=read.table(file="5-6MCF-TCDD_S17_R1_001.htseqCount.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
+tcdd_3=read.table(file="6-7MCF-TCDD_S1_R1_001.htseqCount.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
 
-e2_plus_tcdd_1=read.table(file="16-21MCF-E2-T_S6_R1_001.featureCounts.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
-e2_plus_tcdd_2=read.table(file="17-22MCF-E2-T_S9_R1_001.featureCounts.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
-e2_plus_tcdd_3=read.table(file="18-23MCF-E2-T_S12_R1_001.featureCounts.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
+e2_plus_tcdd_1=read.table(file="16-21MCF-E2-T_S6_R1_001.htseqCount.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
+e2_plus_tcdd_2=read.table(file="17-22MCF-E2-T_S9_R1_001.htseqCount.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
+e2_plus_tcdd_3=read.table(file="18-23MCF-E2-T_S12_R1_001.htseqCount.counts.txt",header = T,sep="\t",stringsAsFactors = F,row.names = 1)
 
 
 ## It is absolutely critical that the columns of the count matrix and the rows of the column data 
