@@ -113,7 +113,7 @@ library("RColorBrewer")
 
 
 sampleDistMatrix <- as.matrix( sampleDists )
-rownames(sampleDistMatrix) <- paste( vsd$condition, sep = " - " )
+rownames(sampleDistMatrix) <- colnames(vsd)
 colnames(sampleDistMatrix) <- NULL
 colors <- colorRampPalette( rev(brewer.pal(9, "Blues")) )(255)
 pheatmap(sampleDistMatrix,
