@@ -202,12 +202,12 @@ E2_TCDD_significant_dn=subset(res_E2_plus_TCDD_df,res_E2_plus_TCDD_df$padj < 0.0
 
 
 
-write.table(res_DIM_df,file="DMSO_vs_DIM_DESEq2_Diff_exp_analysis_Feature_Counts.txt",col.names = T,row.names = T,sep="\t",quote = F)
+write.table(res_DIM_df,file="DMSO_vs_DIM_DESEq2_Diff_exp_analysis.txt",col.names = T,row.names = T,sep="\t",quote = F)
 write.table(normalised_counts,file="ALL_SAMPLES_NORMALISED_COUNTS.txt",col.names = T,row.names = T,sep="\t",quote = F)
 write.table(res_E2_plus_TCDD_df,file="DMSO_vs_E2_plus_TCDD_DESEq2_Diff_exp_analysis_Feature_Counts.txt",col.names = T,row.names = T,sep="\t",quote = F)
-write.table(res_E2_df,file="DMSO_vs_E2_DESEq2_Diff_exp_analysis_Feature_Counts.txt",col.names = T,row.names = T,sep="\t",quote = F)
-write.table(res_RES_df,file="DMSO_vs_RES_DESEq2_Diff_exp_analysis_Feature_Counts.txt",col.names = T,row.names = T,sep="\t",quote = F)
-write.table(res_TCDD_df,file="DMSO_vs_TCDD_DESEq2_Diff_exp_analysis_Feature_Counts.txt",col.names = T,row.names = T,sep="\t",quote = F)
+write.table(res_E2_df,file="DMSO_vs_E2_DESEq2_Diff_exp_analysis.txt",col.names = T,row.names = T,sep="\t",quote = F)
+write.table(res_RES_df,file="DMSO_vs_RES_DESEq2_Diff_exp_analysis.txt",col.names = T,row.names = T,sep="\t",quote = F)
+write.table(res_TCDD_df,file="DMSO_vs_TCDD_DESEq2_Diff_exp_analysis.txt",col.names = T,row.names = T,sep="\t",quote = F)
 
 
 
