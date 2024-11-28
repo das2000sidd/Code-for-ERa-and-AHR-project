@@ -15,6 +15,5 @@ mv /Users/siddhaduio.no/Desktop/PhD_Project_related/Data_from_Jason/RNA_Seq/fast
 ### getting count using htseq. Running union since most approproriate and recommended
 htseq-count -f bam -q -m union -s reverse -t exon -i gene_id /Users/siddhaduio.no/Desktop/PhD_Project_related/Data_from_Jason/RNA_Seq/fastq/2-3MCF-DMSO_S10_R1_001.bam /Users/siddhaduio.no/Desktop/All_omics_tools/Homo_sapiens.GRCh38.104.with.chr.word.gtf > /Users/siddhaduio.no/Desktop/PhD_Project_related/Data_from_Jason/RNA_Seq/fastq/2-3MCF-DMSO_S10_R1_001.htseq.counts.txt
 
-/Users/siddhaduio.no/Desktop/All_omics_tools/subread_has_featureCounts/bin/featureCounts -a /Users/siddhaduio.no/Desktop/All_omics_tools/Homo_sapiens.GRCh38.104.with.chr.word.gtf -o /Users/siddhaduio.no/Desktop/PhD_Project_related/Data_from_Jason/RNA_Seq/fastq/2-3MCF-DMSO_S10_R1_001.featureCounts.counts.txt /Users/siddhaduio.no/Desktop/PhD_Project_related/Data_from_Jason/RNA_Seq/fastq/2-3MCF-DMSO_S10_R1_001.bam -t exon -g 'gene_id' -O
 
 
