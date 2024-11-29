@@ -24,5 +24,7 @@ do
 
 			echo "/Users/siddhaduio.no/Desktop/All_omics_tools/samtools-1.14/samtools index ./$basename.bam \n" >> $basename.sh
 
+			echo "htseq-count -f bam -q -m union -s reverse -t exon -i gene_id ./$basename.bam /Users/siddhaduio.no/Desktop/All_omics_tools/Homo_sapiens.GRCh38.104.with.chr.word.gtf > ./$basename.htseq.counts.txt >> $basename.sh"
+
 
 done
