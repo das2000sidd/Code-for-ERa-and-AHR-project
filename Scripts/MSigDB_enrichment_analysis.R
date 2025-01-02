@@ -3,11 +3,11 @@
 
 library(dplyr)
 
-tcdd_r=read.table(file="TCDD_vs_DMSO_RNASeq_diff_exp_run_after_batch_correction.txt",header=T,sep="\t",stringsAsFactors = F)
-e2_r=read.table(file="E2_vs_DMSO_RNASeq_diff_exp_run_after_batch_correction.txt",header=T,sep="\t",stringsAsFactors = F)
-dim_r=read.table(file="DIM_vs_DMSO_RNASeq_diff_exp_run_after_batch_correction.txt",header=T,sep="\t",stringsAsFactors = F)
-res_r=read.table(file="RES_vs_DMSO_RNASeq_diff_exp_run_after_batch_correction.txt",header=T,sep="\t",stringsAsFactors = F)
-e2_tcdd_r=read.table(file="E2_plus_TCDD_vs_DMSO_RNASeq_diff_exp_run_after_batch_correction.txt",header=T,sep="\t",stringsAsFactors = F)
+tcdd_r=read.table(file="DMSO_vs_TCDD_DESEq2_Diff_exp_analysis.txt",header=T,sep="\t",stringsAsFactors = F)
+e2_r=read.table(file="DMSO_vs_E2_DESEq2_Diff_exp_analysis.txt",header=T,sep="\t",stringsAsFactors = F)
+dim_r=read.table(file="DMSO_vs_DIM_DESEq2_Diff_exp_analysis.txt",header=T,sep="\t",stringsAsFactors = F)
+res_r=read.table(file="DMSO_vs_RES_DESEq2_Diff_exp_analysis.txt",header=T,sep="\t",stringsAsFactors = F)
+e2_tcdd_r=read.table(file="DMSO_vs_E2_plus_TCDD_DESEq2_Diff_exp_analysis.txt",header=T,sep="\t",stringsAsFactors = F)
 
 bakcground_genes_detected=read.table(file="Genes_used_for_diff_exp_run_after_batch_correction.txt",header = F,sep="\t",stringsAsFactors = F)
 
